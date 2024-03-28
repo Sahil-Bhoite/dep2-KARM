@@ -20,5 +20,8 @@ KARM is an AI-powered assistant designed to streamline resume management tasks s
 
 ## Installation
 
-1. Clone the repository:
+Clone the repository:
+   ```bash
+   git clone https://github.com/SahilBoite/KARM-Knowledge-Enhanced-Assistance-for-Resume-Management.git
+
 
