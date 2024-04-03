@@ -25,7 +25,7 @@ from sklearn.decomposition import LatentDirichletAllocation
 from transformers import pipeline
 from config import GOOGLE_API_KEY
 
-os.environ['GOOGLE_API_KEY'] = GOOGLE_API_KEY
+os.environ['GOOGLE_API_KEY'] = "AIzaSyA02NGYXBUx66PlOdM4DJvgMcAEa9Sv4FI"
 nlp = spacy.load("en_core_web_sm") 
 def extract_text(file): # Added for various file types text extraction
     text = ""
