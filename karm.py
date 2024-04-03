@@ -23,9 +23,9 @@ from textract import process
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
 from transformers import pipeline
-from config import GOOGLE_API_KEY
 
-os.environ['GOOGLE_API_KEY'] = "AIzaSyA02NGYXBUx66PlOdM4DJvgMcAEa9Sv4FI"
+
+os.environ['GOOGLE_API_KEY'] = 'AIzaSyA02NGYXBUx66PlOdM4DJvgMcAEa9Sv4FI' #put your GOOGLE API KEY here 
 nlp = spacy.load("en_core_web_sm") 
 def extract_text(file): # Added for various file types text extraction
     text = ""
