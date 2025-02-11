@@ -6,6 +6,7 @@ from langchain_together import Together
 from langchain_core.messages import HumanMessage, AIMessage
 from typing import Dict
 import logging
+from config import TOGETHER_API_KEY
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
