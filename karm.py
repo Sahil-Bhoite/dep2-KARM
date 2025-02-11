@@ -6,7 +6,10 @@ from langchain_together import Together
 from langchain_core.messages import HumanMessage, AIMessage
 from typing import Dict
 import logging
-from config import TOGETHER_API_KEY
+
+
+df.TOGETHER_API_KEY = '09018cc36965afd53da91adb6117f2084bb34f80f209d7d357bbad8c08bc8b26' # Replace with your actual Together API key
+
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
