@@ -47,7 +47,8 @@ def analyze_job_seeker_resume(resume_text: str, job_description: str) -> str:
     return Together(
         model="mistralai/Mixtral-8x7B-Instruct-v0.1",
         temperature=0.7,
-        max_tokens=1024
+        max_tokens=1024,
+        api_key=TOGETHER_API_KEY  # Pass the API key here
     ).invoke(prompt)
 
 def analyze_resumes_for_recruiter(job_description: str, resumes: Dict[str, str]) -> str:
