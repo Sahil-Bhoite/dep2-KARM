@@ -11,18 +11,21 @@ load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Set up Streamlit with a professional config
-st.set_page_config(page_title=" Refine", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="Refine", layout="wide", initial_sidebar_state="expanded")
 st.title("Refine")
 st.markdown("**AI-Powered Resume Optimization** - Elevate your resume to match your dream job with precision and clarity.")
 
-# Custom CSS for professionalism
+# Custom CSS for a strict white theme
 st.markdown("""
     <style>
-    .main { padding: 20px; }
-    .stButton>button { background-color: #4CAF50; color: white; border-radius: 5px; }
+    .main { padding: 20px; background-color: #FFFFFF; }
+    .stButton>button { background-color: #4CAF50; color: #FFFFFF; border-radius: 5px; }
     .stTabs { margin-top: 20px; }
-    .card { border: 1px solid #e0e0e0; border-radius: 10px; padding: 15px; background-color: #f9f9f9; }
-    .highlight { background-color: #fff3cd; padding: 5px; border-radius: 3px; }
+    .card { border: 1px solid #E0E0E0; border-radius: 10px; padding: 15px; background-color: #F5F5F5; }
+    .highlight { background-color: #FFE0B2; padding: 5px; border-radius: 3px; }
+    body { background-color: #FFFFFF; color: #333333; }
+    .stTextInput, .stFileUploader, .stTextArea { background-color: #FFFFFF; color: #333333; }
+    .stMarkdown, .stExpander { color: #333333; }
     </style>
 """, unsafe_allow_html=True)
 
@@ -120,11 +123,10 @@ def evaluate_resume_text(jd_text, resume_text):
 def refine_resume(jd_text, original_resume, evaluation):
     prompt = f"""
     Optimize this resume for the job description based on the evaluation results, while maintaining honesty in all sections, especially experience. 
-Focus on enhancing areas with low scores (e.g., skills and tech stack, projects, and soft skills) to better align with the job requirements. 
-If the candidate’s total professional experience is below 5+ years or not clearly stated, include a factual summary of their experience (e.g., based on listed roles and durations), but do not fabricate or exaggerate years of experience. 
-Incorporate missing skills (e.g., Hadoop, Spark) or enhance project descriptions to emphasize relevant objectives, but only if these can be reasonably inferred from the candidate’s existing background—do not invent skills or experiences not supported by the resume. 
-Wrap only the sections that are newly added or improved with **improved** markers; do not apply markers to unchanged sections (e.g., name, contact details, or areas already meeting requirements). 
-Job Description:
+    Focus on enhancing areas with low scores (e.g., skills and tech stack, projects, and soft skills) to better align with the job requirements. 
+    If the candidate’s total professional experience is below 5+ years or not clearly stated, include a factual summary of their experience (e.g., based on listed roles and durations), but do not fabricate or exaggerate years of experience. 
+    Incorporate missing skills (e.g., Hadoop, Spark) or enhance project descriptions to emphasize relevant objectives, but only if these can be reasonably inferred from the candidate’s existing background—do not invent skills or experiences not supported by the resume. 
+    Wrap only the sections that are newly added or improved with **improved** markers; do not apply markers to unchanged sections (e.g., name, contact details, or areas already meeting requirements). 
     Job Description:
     {jd_text}
     Original Resume:
@@ -193,7 +195,7 @@ if process_button and resume_file and jd_text:
         # Highlight improvements
         highlighted_resume = highlight_improvements(refined_resume)
 
-    # Tabbed layout (removed Improvements tab)
+    # Tabbed layout
     tab1, tab2, tab3 = st.tabs(["Original Resume", "Evaluation", "Refined Resume"])
 
     with tab1:
@@ -227,7 +229,7 @@ if process_button and resume_file and jd_text:
     with tab3:
         st.subheader("Optimized Resume")
         st.markdown(f'<div class="card">{highlighted_resume}</div>', unsafe_allow_html=True)
-        st.markdown("*Highlighted sections in yellow indicate improvements tailored to the job description.*")
+        st.markdown("*Highlighted sections in light orange indicate improvements tailored to the job description.*")
 
 else:
     st.info("Please upload a resume and paste a job description, then click 'Optimize Resume' to begin.")
