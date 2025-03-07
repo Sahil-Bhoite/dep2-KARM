@@ -15,17 +15,17 @@ st.set_page_config(page_title="Refine", layout="wide", initial_sidebar_state="ex
 st.title("Refine")
 st.markdown("**AI-Powered Resume Optimization** - Elevate your resume to match your dream job with precision and clarity.")
 
-# Custom CSS for a strict white theme
+# Custom CSS based on your theme
 st.markdown("""
     <style>
     .main { padding: 20px; background-color: #FFFFFF; }
-    .stButton>button { background-color: #4CAF50; color: #FFFFFF; border-radius: 5px; }
+    .stButton>button { background-color: #FF4B4B; color: #FFFFFF; border-radius: 5px; }
     .stTabs { margin-top: 20px; }
-    .card { border: 1px solid #E0E0E0; border-radius: 10px; padding: 15px; background-color: #F5F5F5; }
-    .highlight { background-color: #FFE0B2; padding: 5px; border-radius: 3px; }
-    body { background-color: #FFFFFF; color: #333333; }
-    .stTextInput, .stFileUploader, .stTextArea { background-color: #FFFFFF; color: #333333; }
-    .stMarkdown, .stExpander { color: #333333; }
+    .card { border: 1px solid #E0E0E0; border-radius: 10px; padding: 15px; background-color: #F0F2F6; }
+    .highlight { background-color: #FF4B4B; color: #FFFFFF; padding: 5px; border-radius: 3px; }
+    body { background-color: #FFFFFF; color: #31333F; }
+    .stTextInput, .stFileUploader, .stTextArea { background-color: #FFFFFF; color: #31333F; }
+    .stMarkdown, .stExpander { color: #31333F; }
     </style>
 """, unsafe_allow_html=True)
 
@@ -229,7 +229,7 @@ if process_button and resume_file and jd_text:
     with tab3:
         st.subheader("Optimized Resume")
         st.markdown(f'<div class="card">{highlighted_resume}</div>', unsafe_allow_html=True)
-        st.markdown("*Highlighted sections in light orange indicate improvements tailored to the job description.*")
+        st.markdown("*Highlighted sections in red indicate improvements tailored to the job description.*")
 
 else:
     st.info("Please upload a resume and paste a job description, then click 'Optimize Resume' to begin.")
