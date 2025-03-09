@@ -245,7 +245,11 @@ with st.sidebar:
     st.header("Get Started")
     st.markdown("Provide your resume (via text or PDF) and job description to optimize your fit.")
     
-    resume_input_method = st.selectbox("How would you like to provide your resume?", ["Paste Text", "Upload PDF"])
+    resume_input_method = st.selectbox(
+        "How would you like to provide your resume?",
+        ["Paste Text", "Upload PDF"],
+        index=1  # Makes "Upload PDF" the default option
+    )
     
     if resume_input_method == "Paste Text":
         resume_text = st.text_area("Paste Resume Text", height=200)
